@@ -1,5 +1,5 @@
 module StreetAddress
-  class US
+  class AU
     VERSION = '2.0.0'
 
     DIRECTIONAL = {
@@ -15,7 +15,7 @@ module StreetAddress
     DIRECTION_CODES = DIRECTIONAL.invert
 
     STREET_TYPES = {
-      'allee' => "aly",
+    'allee' => "aly",
       'alley' => "aly",
       'ally'  => "aly",
       'anex'  => "anx",
@@ -376,7 +376,7 @@ module StreetAddress
       'walks' => "walk",
       'well'  => "wl",
       'wells' => "wls",
-      'wy'    => "way",
+      'wy'    => "way"
     }
 
     STREET_TYPES_LIST = {}
@@ -386,123 +386,47 @@ module StreetAddress
     end
 
     STATE_CODES = {
-      "alabama" => "AL",
-      "alaska" => "AK",
-      "american samoa" => "AS",
-      "arizona" => "AZ",
-      "arkansas" => "AR",
-      "california" => "CA",
-      "colorado" => "CO",
-      "connecticut" => "CT",
-      "delaware" => "DE",
-      "district of columbia" => "DC",
-      "federated states of micronesia" => "FM",
-      "florida" => "FL",
-      "georgia" => "GA",
-      "guam" => "GU",
-      "hawaii" => "HI",
-      "idaho" => "ID",
-      "illinois" => "IL",
-      "indiana" => "IN",
-      "iowa" => "IA",
-      "kansas" => "KS",
-      "kentucky" => "KY",
-      "louisiana" => "LA",
-      "maine" => "ME",
-      "marshall islands" => "MH",
-      "maryland" => "MD",
-      "massachusetts" => "MA",
-      "michigan" => "MI",
-      "minnesota" => "MN",
-      "mississippi" => "MS",
-      "missouri" => "MO",
-      "montana" => "MT",
-      "nebraska" => "NE",
-      "nevada" => "NV",
-      "new hampshire" => "NH",
-      "new jersey" => "NJ",
-      "new mexico" => "NM",
-      "new york" => "NY",
-      "north carolina" => "NC",
-      "north dakota" => "ND",
-      "northern mariana islands" => "MP",
-      "ohio" => "OH",
-      "oklahoma" => "OK",
-      "oregon" => "OR",
-      "palau" => "PW",
-      "pennsylvania" => "PA",
-      "puerto rico" => "PR",
-      "rhode island" => "RI",
-      "south carolina" => "SC",
-      "south dakota" => "SD",
-      "tennessee" => "TN",
-      "texas" => "TX",
-      "utah" => "UT",
-      "vermont" => "VT",
-      "virgin islands" => "VI",
-      "virginia" => "VA",
-      "washington" => "WA",
-      "west virginia" => "WV",
-      "wisconsin" => "WI",
-      "wyoming" => "WY"
+      "australian capital territory" => "ACT",
+      "jervis bay territory" => "JBT",
+      "new south wales" => "NSW",
+      "nsw" => "NSW",
+      "n.s.w" => "NSW",
+      "n.s.w." => "NSW",
+      "northern territory" => "NT",
+      "n.t" => "NT",
+      "n.t." => "NT",
+      "queensland" => "QLD",
+      "q" => "QLD",
+      "q." => "QLD",
+      "south australia" => "SA",
+      "sa" => "SA",
+      "s.a" => "SA",
+      "s.a." => "SA",
+      "tasmania" => "TAS",
+      "victoria" => "VIC",
+      "vic." => "VIC",
+      "western australia" => "WA",
+      "w.a." => "WA",
+      "w.a" => "WA",
+      "wa" => "WA",
+      "ashmore and cartier islands" => "AT",
+      "coral sea islands territory" => "CR"
     }
 
     STATE_NAMES = STATE_CODES.invert
 
     STATE_FIPS = {
-      "01" => "AL",
-      "02" => "AK",
-      "04" => "AZ",
-      "05" => "AR",
-      "06" => "CA",
-      "08" => "CO",
-      "09" => "CT",
-      "10" => "DE",
-      "11" => "DC",
-      "12" => "FL",
-      "13" => "GA",
-      "15" => "HI",
-      "16" => "ID",
-      "17" => "IL",
-      "18" => "IN",
-      "19" => "IA",
-      "20" => "KS",
-      "21" => "KY",
-      "22" => "LA",
-      "23" => "ME",
-      "24" => "MD",
-      "25" => "MA",
-      "26" => "MI",
-      "27" => "MN",
-      "28" => "MS",
-      "29" => "MO",
-      "30" => "MT",
-      "31" => "NE",
-      "32" => "NV",
-      "33" => "NH",
-      "34" => "NJ",
-      "35" => "NM",
-      "36" => "NY",
-      "37" => "NC",
-      "38" => "ND",
-      "39" => "OH",
-      "40" => "OK",
-      "41" => "OR",
-      "42" => "PA",
-      "44" => "RI",
-      "45" => "SC",
-      "46" => "SD",
-      "47" => "TN",
-      "48" => "TX",
-      "49" => "UT",
-      "50" => "VT",
-      "51" => "VA",
-      "53" => "WA",
-      "54" => "WV",
-      "55" => "WI",
-      "56" => "WY",
-      "72" => "PR",
-      "78" => "VI"
+      "01" => "ACT",
+      "02" => "JBT",
+      "04" => "NSW",
+      "05" => "NT",
+      "06" => "QLD",
+      "08" => "SA",
+      "09" => "TAS",
+      "10" => "VIC",
+      "11" => "WA",
+      "12" => "AT",
+      "13" => "CR"
     }
 
     FIPS_STATES = STATE_FIPS.invert
@@ -569,7 +493,7 @@ module StreetAddress
       Regexp::IGNORECASE
     )
     self.dircode_regexp = Regexp.new(DIRECTION_CODES.keys.join("|"), Regexp::IGNORECASE)
-    self.zip_regexp     = /(?:(?<postal_code>\d{5})(?:-?(?<postal_code_ext>\d{4}))?)/
+    self.zip_regexp     = /(?:(?<postal_code>\d{4})(?:-?(?<postal_code_ext>\d{4}))?)/
     self.corner_regexp  = /(?:\band\b|\bat\b|&|\@)/i
 
     # we don't include letters in the number regex because we want to
@@ -618,8 +542,11 @@ module StreetAddress
         |lo?t
         |pier
         |slip
+        |warehouse
         |spa?ce?
         |stop
+        |gpo
+        |level
         |tra?i?le?r
         |box)(?![a-z])
     /ix;
@@ -633,6 +560,8 @@ module StreetAddress
         |off?i?ce?
         |pe?n?t?ho?u?s?e?
         |rear
+        |level
+        |suite
         |side
         |uppe?r
         )\b
@@ -803,7 +732,7 @@ module StreetAddress
             input[k] = input[k].split.map(&:capitalize).join(' ') if input[k]
           end
 
-          return StreetAddress::US::Address.new( input )
+          return StreetAddress::AU::Address.new( input )
         end
     end
 
@@ -841,12 +770,12 @@ module StreetAddress
 
 
       def state_fips
-        StreetAddress::US::FIPS_STATES[state]
+        StreetAddress::AU::FIPS_STATES[state]
       end
 
 
       def state_name
-        name = StreetAddress::US::STATE_NAMES[state] and name.capitalize
+        name = StreetAddress::AU::STATE_NAMES[state] and name.capitalize
       end
 
 
